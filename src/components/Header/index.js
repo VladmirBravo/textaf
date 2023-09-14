@@ -8,15 +8,16 @@ export function Header(){
     <>
       <header className={styles.headerContainer}>
         <div className={styles.headerContent}>
-          <ActiveLink href="/" activeClassName={styles.active}>
-            <a>
-              <Image
+        <Image
                 alt=""
-                src={'/textafLogo.svg'}
-                width="30"
-                height="30"
+                src={'/svg/textafLogoText.svg'}
+                width="150"
+                height="150"
                 className="d-inline-block align-top"
               />
+          <ActiveLink href="/" activeClassName={styles.active}>
+            <a>
+             
             </a>
           </ActiveLink>
           <nav>
