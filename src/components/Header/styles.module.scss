@@ -1,0 +1,63 @@
+.headerContainer{
+    height: 6rem;
+    border-bottom: 5px solid var(--gold);
+}
+
+.headerContent{
+    max-width: 1120px;
+    height: 6rem;
+    margin: 0 auto;
+    padding: 0 2rem; 
+
+    display: flex;
+    align-items: center;
+    
+    img{
+        cursor: pointer;
+        margin-left: 10rem ;
+    }
+
+    nav{
+        margin-left: 0rem;
+
+        a{
+            display: inline-block;
+            position: relative;
+            padding: 0 0.5rem;
+            color: black;
+            transition: color 0.2s;
+            font: 500 0.75rem 'Montserrat';
+            text-decoration: none;
+            
+    
+            & + a {
+                margin-left: 0.3rem;
+            }
+        
+            &:hover{
+                color: gray
+            }
+
+            &.active{
+                color: #cfc20b;
+                font-weight: bold;
+            }
+        }
+    }
+
+  
+  
+
+@media (max-width: 835px){
+        .headerContainer{
+            height: 30rem;
+            padding: 0.5rem 0;
+        }
+        
+        .headerContent{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+}
