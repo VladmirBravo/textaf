@@ -17,9 +17,9 @@ export default function Home({ content }) {
       <div>
         <Image
           width="100%"
-          height={600}
           alt=""
           src={content.bannerImage}
+          className={styles.bannerImage}
         ></Image>
       </div>
       <br />
@@ -46,10 +46,10 @@ export const getStaticProps = async () => {
   const client = Prismic.client("https://textaf.cdn.prismic.io/api/v2");
   const response = await client.getByUID("textaf", "pagina-principal");
 
-  const { textaf_logo, topimage, logoimage, discricao } = response.data;
-
+  const { topimage, logoimage, discricao } = response.data;
+  console.log(response.data)
   const content = {
-    header_logo: textaf_logo.url,
+    //header_logo: textaf_logo.url,
     bannerImage: topimage.url,
     imagemCentro: logoimage.url,
     discricao: RichText.asText(discricao),

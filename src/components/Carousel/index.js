@@ -4,7 +4,7 @@ import styles from "../Carousel/styles.module.scss";
 function UncontrolledExample() {
   return (
     <>
-      <div class="carousel-inner">
+      <div className="carousel-inner">
         <Carousel indicators={false} className={styles.sizeComponent}>
           <Carousel.Item>
             <Image

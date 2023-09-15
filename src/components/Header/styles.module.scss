@@ -1,6 +1,10 @@
 .headerContainer{
-    height: 6rem;
-    border-bottom: 5px solid var(--gold);
+    height: 5rem;
+    //border-bottom: 5px solid var(--gold);
+}
+
+.barra{
+    display: block;
 }
 
 .headerContent{
@@ -14,7 +18,7 @@
     
     img{
         cursor: pointer;
-        margin-left: 5rem ;
+        margin-left: 5rem;
     }
 
     nav{

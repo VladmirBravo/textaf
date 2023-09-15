@@ -3,21 +3,21 @@ import Nav from "react-bootstrap/Nav";
 import styles from "./styles.module.scss";
 import { ActiveLink } from "../ActiveLink";
 
-export function Header(){
+export function Header() {
   return (
     <>
       <header className={styles.headerContainer}>
         <div className={styles.headerContent}>
-        <Image
-                alt=""
-                src={'/svg/textafLogoText.svg'}
-                width="150"
-                height="150"
-                className="d-inline-block align-top"
-              />
           <ActiveLink href="/" activeClassName={styles.active}>
             <a>
-             
+            <Image
+              href="/"
+              alt=""
+              src={"/svg/textafLogoText.svg"}
+              width="150"
+              height="150"
+              className="d-inline-block align-top"
+            />
             </a>
           </ActiveLink>
           <nav>
@@ -48,9 +48,13 @@ export function Header(){
           </nav>
         </div>
       </header>
+      <Image 
+      //Barra Dourada Abaixo do MENU
+        alt=""
+        src={"/svg/linhadourada.svg"}
+        width="100%"
+        className={styles.barra}
+        />      
     </>
   );
 }
-
-
-//git commit -m "Adicição das de outras paginas e da alimentação dinamica"

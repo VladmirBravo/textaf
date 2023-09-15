@@ -4,7 +4,16 @@ import styles from "./styles.module.scss";
 export function Footer() {
   return (
     <>
-   
+      <Image 
+      //Barra Dourada Abaixo do MENU
+        alt=""
+        src={"/svg/linhadourada.svg"}
+        width="100%"
+        className={styles.barra}
+        />      
+        <div>
+          
+        </div>
       <footer className={styles.footerContainer}>
         <div className={styles.footerContent}>
           <div className={styles.footercont}>
