@@ -12,7 +12,7 @@ export default function Home({ content }) {
   return (
     <>
       <Head>
-        <title>Home</title>
+        <title>TEXTAF | Home</title>
       </Head>
       <div>
         <Image

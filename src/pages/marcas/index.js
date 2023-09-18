@@ -11,15 +11,15 @@ export default function Marcas({ content }) {
     return (
       <>
       <Head>
-        <title>Home</title>
+        <title>Marcas</title>
       </Head>
-      <div>
+      
         <Image
           width="100%"
           alt=""
-          src={content.bannerImage}
+          src="/svg/senhor.svg"
         ></Image>
-      </div>
+      
       <br />
       <div className={styles.divImg2}>
         <Image alt="" src={content.imagemCentro}></Image>
