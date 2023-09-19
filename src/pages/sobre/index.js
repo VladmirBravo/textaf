@@ -78,7 +78,7 @@ export default function Sobre() {
           </section>
           <Image
           className={styles.imagem2}
-          width="50%"
+          width="60%"
           alt=""
           src="/svg/Retangulo.svg"
         ></Image>
