@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Image from 'next/image'
+import { Image } from "react-bootstrap";
 import styles from "./styles.module.scss";
 
 export default function Negocio() {

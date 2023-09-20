@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import { Image } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
 import styles from "../Carousel/styles.module.scss";
 function UncontrolledExample() {
