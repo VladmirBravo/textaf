@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Image } from "react-bootstrap";
+import Image from 'next/image'
 import styles from "./styles.module.scss";
 
 export default function Negocio() {
@@ -9,7 +9,7 @@ export default function Negocio() {
         <title>TEXTAF | Sobre</title>
       </Head>
 
-      {/* <Image width="100%" alt="" src="/svg/laboratorio.svg"></Image> */}
+      <Image width="100%" alt="" src="/svg/laboratorio.svg"></Image>
       <br />
       <br />
       <section className={styles.ctaText}>

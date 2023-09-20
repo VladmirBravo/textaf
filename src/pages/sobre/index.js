@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Image } from "react-bootstrap";
+import Image from 'next/image'
 import styles from "./styles.module.scss";
 
 export default function Sobre() {
@@ -8,7 +8,7 @@ export default function Sobre() {
       <Head>
         <title>TEXTAF | Sobre</title>
       </Head>
-      {/* <Image width="100%" alt="" src="/svg/maquina2.svg"></Image> */}
+      <Image width="100%" alt="" src="/svg/maquina2.svg"></Image>
       <main className={styles.container}>
         <div className={styles.containerHeader}>
           <section className={styles.ctaText}>
@@ -42,19 +42,19 @@ export default function Sobre() {
               Ministério do Interior do país.
             </p>
           </section>
-          {/* <Image
+          <Image
             className={styles.imagem}
             width="50%"
             alt=""
             src="/svg/ImagemFormatada.svg"
-          ></Image> */}
+          ></Image>
         </div>
-        {/* <Image
+        <Image
           className={styles.imagem1}
           width="100%"
           alt=""
           src="/svg/maquina1.svg"
-        ></Image> */}
+        ></Image>
       </main>
       <main className={styles.container}>
         <div className={styles.containerHeader}>
@@ -76,12 +76,12 @@ export default function Sobre() {
               Ministério do Interior do país.
             </p>
           </section>
-          {/* <Image
+          <Image
           className={styles.imagem2}
           width="60%"
           alt=""
           src="/svg/retangulo.svg"
-        ></Image> */}
+        ></Image>
         </div>
       </main>
     </>
