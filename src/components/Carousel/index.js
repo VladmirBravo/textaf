@@ -18,22 +18,22 @@ function UncontrolledExample() {
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
-            <Image
+            {/* <Image
               className="d-block w-100"
               src="images/_ISA3380.jpg"
               alt="Second slide"
-            />
+            /> */}
             <Carousel.Caption>
               <h3>Second slide label</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
-            <Image
+            {/* <Image
               className="d-block w-100"
               src="images/_ISA3490.jpg"
               alt="Third slide"
-            />
+            /> */}
             <Carousel.Caption>
               <h3>Third slide label</h3>
               <p>
