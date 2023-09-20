@@ -15,16 +15,16 @@ export default function Home({ content }) {
         <title>TEXTAF | Home</title>
       </Head>
       <div>
-        <Image
+        {/* <Image
           width="100%"
           alt=""
           src={content.bannerImage}
           className={styles.bannerImage}
-        ></Image>
+        ></Image> */}
       </div>
       <br />
       <div className={styles.divImg2}>
-        <Image alt="" src={content.imagemCentro}></Image>
+        {/* <Image alt="" src={content.imagemCentro}></Image> */}
       </div>
       <div>
         <section className={styles.ctaText}>
