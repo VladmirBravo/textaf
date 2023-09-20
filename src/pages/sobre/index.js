@@ -80,7 +80,7 @@ export default function Sobre() {
           className={styles.imagem2}
           width="60%"
           alt=""
-          src="/svg/Retangulo.svg"
+          src="/svg/retangulo.svg"
         ></Image>
         </div>
       </main>
