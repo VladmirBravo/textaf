@@ -9,7 +9,7 @@ export default function Negocio() {
         <title>TEXTAF | Sobre</title>
       </Head>
 
-      <Image width="100%" alt="" src="/svg/laboratorio.svg"></Image>
+      <Image width="100%" alt="" src="/svg/laboratorio.webp"></Image>
       <br />
       <br />
       <section className={styles.ctaText}>

@@ -18,7 +18,7 @@ export default function Home({ content }) {
         <Image
           width="100%"
           alt=""
-          src={content.bannerImage}
+          src="/svg/senhor.webp"
           className={styles.bannerImage}
         ></Image>
       </div>

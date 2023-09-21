@@ -8,7 +8,7 @@ export default function Sobre() {
       <Head>
         <title>TEXTAF | Sobre</title>
       </Head>
-      <Image width="100%" alt="" src="/svg/maquina2.svg"></Image>
+      <Image width="100%" alt="" src="/svg/maquina2.webp"></Image>
       <main className={styles.container}>
         <div className={styles.containerHeader}>
           <section className={styles.ctaText}>
@@ -46,14 +46,14 @@ export default function Sobre() {
             className={styles.imagem}
             width="50%"
             alt=""
-            src="/svg/ImagemFormatada.svg"
+            src="/svg/ImagemFormatada.webp"
           ></Image>
         </div>
         <Image
           className={styles.imagem1}
           width="100%"
           alt=""
-          src="/svg/maquina1.svg"
+          src="/svg/maquina1.webp"
         ></Image>
       </main>
       <main className={styles.container}>
