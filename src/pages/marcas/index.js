@@ -17,7 +17,7 @@ export default function Marcas({ content }) {
         <Image
           width="100%"
           alt=""
-          src="/svg/senhor.svg"
+          src="/svg/senhor.webp"
         ></Image>
       
       <br />
