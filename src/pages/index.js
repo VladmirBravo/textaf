@@ -47,7 +47,7 @@ export const getStaticProps = async () => {
   const response = await client.getByUID("textaf", "pagina-principal");
 
   const { topimage, logoimage, discricao } = response.data;
-  console.log(response.data)
+  //console.log(response.data)
   const content = {
     //header_logo: textaf_logo.url,
     bannerImage: topimage.url,

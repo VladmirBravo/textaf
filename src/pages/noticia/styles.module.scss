@@ -2,14 +2,19 @@
     max-width: 1120px;
     margin: 2rem auto;
 
-    h1{
+
+    h1 {
         font-family: Baron-Neue;
         font-size: 50px;
         margin-bottom: 2rem;
     }
 
+    img {
+        margin-bottom: 1rem;
+        max-width: 100%;
+        max-height: 300px;
+    }
 }
-
 
 
 .posts {
@@ -25,16 +30,8 @@
             padding-top: 2rem;
         }
 
-        img {
-            margin-top: 2rem;
-            margin-bottom: 150rem;
-            max-width: 100%;
-            max-height: 300px;
-            display: block;
-        }
-
         strong {
-            margin-top: 1rem;
+
             font-size: 1.5rem;
             margin: 1rem 0;
             line-height: 2rem;
@@ -42,16 +39,20 @@
             transition: color 0.3s;
             font-family: Baron-Neue;
             font-size: 34px;
+
         }
 
         p {
+            max-width: 350px; // Limite maximo do texto
+            margin-top: 1;
             color: gray;
             font-size: larger;
             line-height: 1.62rem;
-            max-width: 300px; // Limite maximo do texto
-            white-space: nowrap; // Removendo quebra de linha
-            overflow: hidden; // Removendo a barra de rolagem
-            text-overflow: ellipsis; // Adicionando "..." ao final do texto
+            overflow: hidden; // Removendo barra de rolagem
+            text-overflow: ellipsis; // Adicionando "..." ao final
+            display: -webkit-box;
+            -webkit-line-clamp: 5; // Quantidade de linhas
+            -webkit-box-orient: vertical;
         }
 
         &:hover strong {
@@ -65,5 +66,4 @@
     src: url('../../../src/styles/Baron-Neue.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-  }
-  
+}
