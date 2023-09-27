@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "./styles.module.scss";
 import Link from "next/link";
-import { Image } from "react-bootstrap";
+import { Button, Image } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -9,9 +9,22 @@ import Col from "react-bootstrap/Col";
 import * as prismic from "@prismicio/client";
 import { RichText } from "prismic-reactjs";
 import { useState } from "react";
+import Modal from "react-bootstrap/Modal";
 
 export default function Noticia({ posts: PostBlog }) {
   const [posts, setPosts] = useState(PostBlog || []);
+  const [show, setShow] = useState(false);
+  const [titulo, setTitulo] = useState('');
+  const [descri, setDescri] = useState('');
+  const [imagem, setImagem] = useState('');
+  
+  //Alimentar o Conteudo do Modal
+  const handleClick = (tit,desc,imag) => {
+      setTitulo(tit);
+      setDescri(desc);
+      setImagem(imag)
+      setShow(true)
+  };
 
   return (
     <>
@@ -21,7 +34,7 @@ export default function Noticia({ posts: PostBlog }) {
 
       <Container className={styles.container}>
         <h1>Notícias</h1>
-        <Row xs={3} md={3} lg={3}>
+        <Row lg={4}>
           {posts.map((post) => (
             <>
               <Col className={styles.posts}>
@@ -31,18 +44,42 @@ export default function Noticia({ posts: PostBlog }) {
                   src={post.cover}
                   alt={post.title}
                 />
-                <Link key={post.slug} legacyBehavior href="">
-                  <a key={post.slug}>
-                    <br />
-                    <strong>{post.title}</strong>
-                    <p>{post.description}</p>
-                  </a>
-                </Link>
+                <a onClick={() => handleClick(post.title,post.description,post.cover)}  key={post.slug}>
+                  <strong key={post.slug}>{post.title}</strong>
+                  <p>{post.description}</p>
+                </a>
               </Col>
             </>
           ))}
         </Row>
       </Container>
+
+      <Modal  className={styles.modalContainer} size="xl" show={show} onHide={() => setShow(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title id="example-custom-modal-styling-title">
+            {titulo}
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body className={styles.modalBody}>
+          <Container>
+            <Row>
+              <Col>
+                <Image
+                  width={500}
+                  height={500}
+                  src={imagem}
+                  alt=""
+                />
+              </Col>
+              <Col>
+                <p>
+                  {descri}
+                </p>
+              </Col>
+            </Row>
+          </Container>
+        </Modal.Body>
+      </Modal>
     </>
   );
 }
