@@ -33,7 +33,7 @@
             padding-top: 2rem;
         }
 
-        strong {
+        h1 {
 
             font-size: 1.5rem;
             margin: 1rem 0;
@@ -45,7 +45,7 @@
 
         }
 
-        p {
+        div {
             max-width: 350px; // Limite maximo do texto
             margin-top: 1;
             margin-bottom: 3rem;
@@ -59,23 +59,21 @@
             -webkit-box-orient: vertical;
         }
 
-        &:hover strong {
+        &:hover h1 {
             color: gold;
         }
     }
 }
 
-@font-face {
-    font-family: 'Baron-Neue';
-    src: url('../../../src/styles/Baron-Neue.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
 .modalBody {
-    
+    h1{
+        font-family: Baron-Neue;
+    }
+
     p{
         color: rgba(7, 7, 7, 0.878);
+        font-size: large;
+        text-align: left;
     }
 
 
@@ -83,4 +81,12 @@
 
 .modalContainer{
     opacity: 1;
+}
+
+
+@font-face {
+    font-family: 'Baron-Neue';
+    src: url('../../../src/styles/Baron-Neue.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }

@@ -14,16 +14,23 @@ import Modal from "react-bootstrap/Modal";
 export default function Noticia({ posts: PostBlog }) {
   const [posts, setPosts] = useState(PostBlog || []);
   const [show, setShow] = useState(false);
-  const [titulo, setTitulo] = useState('');
-  const [descri, setDescri] = useState('');
-  const [imagem, setImagem] = useState('');
-  
+  const [titulo, setTitulo] = useState("");
+  const [descri, setDescri] = useState("");
+  const [imagem, setImagem] = useState("");
+
   //Alimentar o Conteudo do Modal
-  const handleClick = (tit,desc,imag) => {
-      setTitulo(tit);
-      setDescri(desc);
-      setImagem(imag)
-      setShow(true)
+  const handleClick = (tit, desc, imag) => {
+    setTitulo(tit);
+    setDescri(desc);
+    setImagem(imag);
+    setShow(true);
+  };
+
+  const limparDados = () => {
+    setShow(false);
+    setTitulo('');
+    setDescri('');
+    setImagem('');
   };
 
   return (
@@ -44,37 +51,41 @@ export default function Noticia({ posts: PostBlog }) {
                   src={post.cover}
                   alt={post.title}
                 />
-                <a onClick={() => handleClick(post.title,post.description,post.cover)}  key={post.slug}>
-                  <strong key={post.slug}>{post.title}</strong>
-                  <p>{post.description}</p>
+                <a
+                  onClick={() =>
+                    handleClick(post.title, post.description, post.cover)
+                  }
+                  key={post.slug}
+                >
+                  <h1 key={post.slug}>{post.title}</h1>
+                  <div dangerouslySetInnerHTML={{__html: post.description}}></div>
                 </a>
+                <div></div>
               </Col>
             </>
           ))}
         </Row>
       </Container>
 
-      <Modal  className={styles.modalContainer} size="xl" show={show} onHide={() => setShow(false)}>
+      <Modal
+        className={styles.modalContainer}
+        size="xl"
+        show={show}
+        onHide={() => limparDados()}
+      >
         <Modal.Header closeButton>
           <Modal.Title id="example-custom-modal-styling-title">
-            {titulo}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className={styles.modalBody}>
           <Container>
             <Row>
               <Col>
-                <Image
-                  width={500}
-                  height={500}
-                  src={imagem}
-                  alt=""
-                />
+                <Image width={500} height={500} src={imagem} alt="" />
               </Col>
               <Col>
-                <p>
-                  {descri}
-                </p>
+                <h1>{titulo}</h1>
+                <div dangerouslySetInnerHTML={{ __html: descri }}></div>
               </Col>
             </Row>
           </Container>
@@ -89,14 +100,19 @@ export const getStaticProps = async () => {
   const response = await client.getAllByType("post", {
     orderings: {
       field: "document.first_publication_date",
+      filters: [prismic.filter.fulltext('post', 'description')],
     },
   });
 
+  
+
+
   const posts = response.map((document) => {
+    console.log(prismic.asHTML(document.data.description))
     return {
       slug: document.uid,
       title: RichText.asText(document.data.title),
-      description: RichText.asText(document.data.description),
+      description: prismic.asHTML(document.data.description),
       cover: document.data.cover.url,
     };
   });
