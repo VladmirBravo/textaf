@@ -1,7 +1,7 @@
 import { Image } from "react-bootstrap";
 import styles from "../styles/home.module.scss";
 import Head from "next/head";
-import UncontrolledExample from "@/components/Carousel";
+import CarrouselHome from "@/components/CarouselHome";
 
 import Prismic from "prismic-javascript";
 import { RichText } from "prismic-reactjs";
@@ -15,29 +15,39 @@ export default function Home({ content }) {
         <title>TEXTAF | Home</title>
       </Head>
       <div>
-        <Image
-          width="100%"
-          alt=""
-          src="/svg/senhor.webp"
-          className={styles.bannerImage}
-        ></Image>
+        <CarrouselHome />
       </div>
-      <br />
       <div className={styles.divImg2}>
-        <Image alt="" src={content.imagemCentro}></Image>
+        <Image alt="" width="20%" src="/svg/textaflogo.webp"></Image>
       </div>
-      <div>
-        <section className={styles.ctaText}>
-          <p>{content.discricao}</p>
-        </section>
-        <br />
-        <br />
-        <div width="100%" height={600}>
-          <UncontrolledExample />
+      <section className={styles.ctaText}>
+        <p>{content.discricao}</p>
+      </section>
+      <Image alt="" width="100%" src="/svg/SenhorCinza.webp"></Image>
+      <main className={styles.container}>
+        <div className={styles.containerHeader}>
+          <section className={styles.ctaTextFinal}>
+            <h1 className={styles.titulo}>O QUE ACREDITAMOS</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+              erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
+              tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+              consequat. Duis autem vel eum iriure dolor in hendrerit in
+              vulputate velit esse molestie consequat, vel illum dolore eu
+              feugiat nulla facilisis at vero eros et accumsan et iusto odio
+              dignissim qui blandit praesent luptatum zzril delenit augue duis
+              dolore te feugait nulla facilisi
+            </p>
+          </section>
+          <Image
+            className={styles.imagem2}
+            width="40%"
+            alt=""
+            src="/svg/ImagemFormatada2.webp"
+          ></Image>
         </div>
-        <br />
-        <br />
-      </div>
+      </main>
     </>
   );
 }

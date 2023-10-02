@@ -90,3 +90,29 @@
     font-weight: normal;
     font-style: normal;
 }
+
+
+.buttomNavigate{
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    div{
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    button{
+        margin: 0 5px;
+        border: 0;
+        background-color: white;
+        display: flex ;
+        padding: 0.5 rem;
+        
+        --bs-btn-hover-bg: gold;
+    }
+  
+}

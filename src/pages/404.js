@@ -9,7 +9,23 @@ export default function Custom404() {
         <br/>
         <br/>
         <br/>
-         <h1>404 - Pagina Invalida</h1>;
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <h1>404 - Pagina Não encontrada</h1>;    
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
          <br/>
          <br/>
          <br/>

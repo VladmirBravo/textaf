@@ -8,11 +8,18 @@ import Col from "react-bootstrap/Col";
 
 import * as prismic from "@prismicio/client";
 import { RichText } from "prismic-reactjs";
+import {
+  FiChevronLeft,
+  FiChevronsLeft,
+  FiChevronRight,
+  FiChevronsRight,
+} from "react-icons/fi";
 import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 
-export default function Noticia({ posts: PostBlog }) {
+export default function Noticia({ posts: PostBlog, page, totalPage }) {
   const [posts, setPosts] = useState(PostBlog || []);
+  const [currentPage, setCurrentPage] = useState(Number(page));
   const [show, setShow] = useState(false);
   const [titulo, setTitulo] = useState("");
   const [descri, setDescri] = useState("");
@@ -28,17 +35,52 @@ export default function Noticia({ posts: PostBlog }) {
 
   const limparDados = () => {
     setShow(false);
-    setTitulo('');
-    setDescri('');
-    setImagem('');
+    setTitulo("");
+    setDescri("");
+    setImagem("");
   };
+
+  //Buscar novos Pots
+ async function reqPost(pageNumber) {
+  const client = prismic.createClient("https://textaf.cdn.prismic.io/api/v2");
+  const response = await client.getByType("post", {
+    orderings: {
+      field: "document.last_publication_date",
+      direction: "desc",
+    },
+    fetch: ["post.title", "post.description", "post.cover"],
+    pageSize: 3,
+    page: String(pageNumber)
+  })
+
+    return response;
+  }
+
+ async function navigatePage(pageNumber) {
+    const response = await reqPost(pageNumber);
+
+    if(response.results.length === 0){
+      return;
+    }
+
+    const getPosts = response.results.map((document) => {
+      return {
+        slug: document.uid,
+        title: RichText.asText(document.data.title),
+        description: prismic.asHTML(document.data.description),
+        cover: document.data.cover.url,
+      };
+    });
+
+    setCurrentPage(pageNumber)
+    setPosts(getPosts);
+  }
 
   return (
     <>
       <Head>
         <title>TEXTAF | Noticias</title>
       </Head>
-
       <Container className={styles.container}>
         <h1>Notícias</h1>
         <Row lg={4}>
@@ -58,15 +100,37 @@ export default function Noticia({ posts: PostBlog }) {
                   key={post.slug}
                 >
                   <h1 key={post.slug}>{post.title}</h1>
-                  <div dangerouslySetInnerHTML={{__html: post.description}}></div>
+                  <div
+                    dangerouslySetInnerHTML={{ __html: post.description }}
+                  ></div>
                 </a>
-                <div></div>
               </Col>
             </>
           ))}
         </Row>
+        <div className={styles.buttomNavigate}>
+          {Number(currentPage) >= 2 && (
+            <div>
+              <Button onClick={() => navigatePage(1)}>
+                <FiChevronsLeft size={25} color="#000" />
+              </Button>
+              <Button onClick={() => navigatePage(Number(currentPage - 1))}>
+                <FiChevronLeft size={25} color="#000" />
+              </Button>
+            </div>
+          )}
+          {Number(currentPage) < Number(totalPage) && (
+            <div>
+              <Button onClick={() => navigatePage(Number(currentPage + 1))}>
+                <FiChevronRight size={25} color="#000" />
+              </Button>
+              <Button onClick={() => navigatePage(totalPage)}>
+                <FiChevronsRight size={25} color="#000" />
+              </Button>
+            </div>
+          )}
+        </div>
       </Container>
-
       <Modal
         className={styles.modalContainer}
         size="xl"
@@ -74,8 +138,7 @@ export default function Noticia({ posts: PostBlog }) {
         onHide={() => limparDados()}
       >
         <Modal.Header closeButton>
-          <Modal.Title id="example-custom-modal-styling-title">
-          </Modal.Title>
+          <Modal.Title id="example-custom-modal-styling-title"></Modal.Title>
         </Modal.Header>
         <Modal.Body className={styles.modalBody}>
           <Container>
@@ -97,18 +160,17 @@ export default function Noticia({ posts: PostBlog }) {
 
 export const getStaticProps = async () => {
   const client = prismic.createClient("https://textaf.cdn.prismic.io/api/v2");
-  const response = await client.getAllByType("post", {
+  const response = await client.getByType("post", {
     orderings: {
-      field: "document.first_publication_date",
-      filters: [prismic.filter.fulltext('post', 'description')],
+      field: "document.last_publication_date",
+      direction: "desc",
     },
+    fetch: ["post.title", "post.description", "post.cover"],
+    pageSize: 3,
   });
 
-  
-
-
-  const posts = response.map((document) => {
-    console.log(prismic.asHTML(document.data.description))
+  const posts = response.results.map((document) => {
+    //console.log(prismic.asHTML(document.data.description))
     return {
       slug: document.uid,
       title: RichText.asText(document.data.title),
@@ -120,7 +182,9 @@ export const getStaticProps = async () => {
   return {
     props: {
       posts,
+      page: response.page,
+      totalPage: response.total_pages,
     },
-    revalidate: 60 * 2, // A pagina será regerada a cada 2 minutos
+    revalidate: 60 * 30, // A pagina será regerada a cada 30 minutos
   };
 };
