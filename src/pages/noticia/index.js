@@ -166,7 +166,7 @@ export const getStaticProps = async () => {
       direction: "desc",
     },
     fetch: ["post.title", "post.description", "post.cover"],
-    pageSize: 3,
+    pageSize: 6,
   });
 
   const posts = response.results.map((document) => {

@@ -27,7 +27,7 @@ export default function Home({ content }) {
       <main className={styles.container}>
         <div className={styles.containerHeader}>
           <section className={styles.ctaTextFinal}>
-            <h1 className={styles.titulo}>O QUE ACREDITAMOS</h1>
+            <h1 className={styles.titulo}>o que <br/> acReditamos</h1>
             <p>
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
               nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam

@@ -1,0 +1,40 @@
+.container{
+    display: block;
+}
+
+.divImg{
+    display:inline-block;
+    width: auto;
+    height: auto;
+}
+
+
+
+
+.divImg2{
+    min-height: 23rem;
+    display: flex;
+    max-width: 640px;
+    margin: 0 auto;
+    cursor: pointer;
+    align-items: center;
+    max-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+.ctaText{
+    p{
+        text-indent: 4rem;
+        margin: auto;
+        text-align: center;
+        font-size: 1.5rem;
+        color: gray;
+        max-width: 76%;
+        line-height: 1.8rem;
+        word-spacing: 5px;
+    }
+}

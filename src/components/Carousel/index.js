@@ -1,7 +1,7 @@
 import { Image } from "react-bootstrap";
 import Carousel from "react-bootstrap/Carousel";
 import styles from "../Carousel/styles.module.scss";
-function UncontrolledExample() {
+function Carrousell() {
   return (
     <>
       <div className="carousel-inner">
@@ -9,7 +9,7 @@ function UncontrolledExample() {
           <Carousel.Item>
             <Image
               className="d-block w-100"
-              src="images/_ISA3507.webp"
+              src="images/IM1.webp"
               alt="First slide"
             />
             <Carousel.Caption>
@@ -20,7 +20,7 @@ function UncontrolledExample() {
           <Carousel.Item>
             <Image
               className="d-block w-100"
-              src="images/_ISA3380.webp"
+              src="images/IM2.webp"
               alt="Second slide"
             />
             <Carousel.Caption>
@@ -31,7 +31,7 @@ function UncontrolledExample() {
           <Carousel.Item>
             <Image
               className="d-block w-100"
-              src="images/_ISA3490.webp"
+              src="images/IM3.webp"
               alt="Third slide"
             />
             <Carousel.Caption>
@@ -47,4 +47,4 @@ function UncontrolledExample() {
   );
 }
 
-export default UncontrolledExample;
+export default Carrousell;

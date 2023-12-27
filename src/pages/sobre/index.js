@@ -44,16 +44,16 @@ export default function Sobre() {
           </section>
           <Image
             className={styles.imagem}
-            width="50%"
+            width="45%"
             alt=""
-            src="/svg/ImagemFormatada.webp"
+            src="/svg/pedreiro.webp"
           ></Image>
         </div>
         <Image
           className={styles.imagem1}
           width="100%"
           alt=""
-          src="/svg/maquina1.webp"
+          src="/svg/baobab.webp"
         ></Image>
       </main>
       <main className={styles.container}>
@@ -80,7 +80,7 @@ export default function Sobre() {
           className={styles.imagem2}
           width="60%"
           alt=""
-          src="/svg/retangulo.svg"
+          src="/svg/retangulo.webp"
         ></Image>
         </div>
       </main>

@@ -1,9 +1,9 @@
 .sizeComponent{
     height: 500px;
     width: 1100px;
-    background-color: black;
+    background-color: transparent;
     position: relative;
     margin: auto;
-    
+    border-radius: 15px 15px 15px 15px;
+    overflow: hidden;
 }
-

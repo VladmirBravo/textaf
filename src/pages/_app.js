@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap CSS
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { useEffect } from "react";
+import { SSRProvider } from "react-bootstrap";
 import "../styles/global.scss";
 
 import { PrismicProvider } from "@prismicio/react";
@@ -14,11 +15,13 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <Header />
-      <PrismicProvider client={client}>
-        <Component {...pageProps} />
-      </PrismicProvider>
-      <Footer />
+      <SSRProvider>
+        <Header />
+        <PrismicProvider client={client}>
+          <Component {...pageProps} />
+        </PrismicProvider>
+        <Footer />
+      </SSRProvider>
     </>
   );
 }
