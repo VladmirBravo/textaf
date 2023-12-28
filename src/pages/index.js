@@ -18,26 +18,18 @@ export default function Home({ content }) {
         <CarrouselHome />
       </div>
       <div className={styles.divImg2}>
-        <Image alt="" width="20%" src="/svg/textaflogo.webp"></Image>
+        <Image alt="" width="20%" src={content.textaf}></Image>
       </div>
       <section className={styles.ctaText}>
         <p>{content.discricao}</p>
       </section>
-      <Image alt="" width="100%" src="/svg/SenhorCinza.webp"></Image>
+      <Image alt="" width="100%" src={content.textafimagedados}></Image>
       <main className={styles.container}>
         <div className={styles.containerHeader}>
           <section className={styles.ctaTextFinal}>
             <h1 className={styles.titulo}>o que <br/> acReditamos</h1>
             <p>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
-              erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-              tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
-              consequat. Duis autem vel eum iriure dolor in hendrerit in
-              vulputate velit esse molestie consequat, vel illum dolore eu
-              feugiat nulla facilisis at vero eros et accumsan et iusto odio
-              dignissim qui blandit praesent luptatum zzril delenit augue duis
-              dolore te feugait nulla facilisi
+            {content.hometextdescricao}
             </p>
           </section>
           <Image
@@ -56,13 +48,16 @@ export const getStaticProps = async () => {
   const client = Prismic.client("https://textaf.cdn.prismic.io/api/v2");
   const response = await client.getByUID("textaf", "pagina-principal");
 
-  const { topimage, logoimage, discricao } = response.data;
+  const { topimage, logoimage, discricao, hometextdescricao, textafimagedados, textaf } = response.data;
   //console.log(response.data)
   const content = {
     //header_logo: textaf_logo.url,
     bannerImage: topimage.url,
     imagemCentro: logoimage.url,
     discricao: RichText.asText(discricao),
+    hometextdescricao: RichText.asText(hometextdescricao),
+    textaf: textaf.url,
+    textafimagedados: textafimagedados.url
   };
   return {
     props: {
