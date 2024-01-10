@@ -23,20 +23,25 @@ export default function Home({ content }) {
       <section className={styles.ctaText}>
         <p>{content.discricao}</p>
       </section>
-      <Image alt="" width="100%" src={content.textafimagedados}></Image>
+      <Image alt="" className={styles.imageDados} width="100%" src={content.textafimagedados}></Image>
+      <div className={styles.iconesDados}>
+         <Image alt="" width="30%" src='\svg\tons.webp'></Image>
+         <Image alt="" width="30%" src='\svg\trabalha.webp'></Image>
+         <Image alt="" width="30%" src='\svg\tons.webp'></Image>
+      </div>
       <main className={styles.container}>
         <div className={styles.containerHeader}>
           <section className={styles.ctaTextFinal}>
-            <h1 className={styles.titulo}>o que <br/> acReditamos</h1>
-            <p>
-            {content.hometextdescricao}
-            </p>
+            <h1 className={styles.titulo}>
+              o que <br /> acReditamos
+            </h1>
+            <p>{content.hometextdescricao}</p>
           </section>
           <Image
             className={styles.imagem2}
             width="40%"
             alt=""
-            src="/svg/ImagemFormatada2.webp"
+            src={content.imagemfinal}
           ></Image>
         </div>
       </main>
@@ -46,18 +51,23 @@ export default function Home({ content }) {
 
 export const getStaticProps = async () => {
   const client = Prismic.client("https://textaf.cdn.prismic.io/api/v2");
-  const response = await client.getByUID("textaf", "pagina-principal");
+  const response = await client.getByUID("home", "pagina-home");
 
-  const { topimage, logoimage, discricao, hometextdescricao, textafimagedados, textaf } = response.data;
+  const {
+    discricao,
+    hometextdescricao,
+    textafimagedados,
+    textaf,
+    imagemfinal,
+  } = response.data;
   //console.log(response.data)
   const content = {
     //header_logo: textaf_logo.url,
-    bannerImage: topimage.url,
-    imagemCentro: logoimage.url,
     discricao: RichText.asText(discricao),
     hometextdescricao: RichText.asText(hometextdescricao),
     textaf: textaf.url,
-    textafimagedados: textafimagedados.url
+    textafimagedados: textafimagedados.url,
+    imagemfinal: imagemfinal.url,
   };
   return {
     props: {

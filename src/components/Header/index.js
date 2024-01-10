@@ -1,4 +1,4 @@
-import { Container, Image, NavDropdown, Navbar } from "react-bootstrap";
+import { Container, Image, NavDropdown, Navbar, Offcanvas } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import styles from "./styles.module.scss";
 import { ActiveLink } from "../ActiveLink";
@@ -21,13 +21,19 @@ export function Header() {
               />
             </a>
           </ActiveLink>
-          <Navbar className="bg-body-tertiary">
-            <Container>
+          <Navbar expand="lg" className="bg-body-tertiary">
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
-              <Navbar.Collapse id="basic-navbar-nav">
+              <Navbar.Offcanvas
+                id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel-expand-sm"
+                placement="end"
+                style={{ maxWidth: '60vw', /*maxHeight: '80vh'*/ }}
+             >
+               <Offcanvas.Body >
+               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
                   <Nav.Link className={pathname === '/sobre' ? styles.active : ''}  href="/sobre">SOBRE</Nav.Link>
-                  <Nav.Link>|</Nav.Link>
+                  <Nav.Link className={styles.separador}>|</Nav.Link>
                   <NavDropdown title="NEGÓCIOS" id="basic-nav-dropdown">
                     <NavDropdown.Item className={pathname === '/servicos' ? styles.active : ''} href="/servicos">
                       SERVIÇOS
@@ -39,7 +45,7 @@ export function Header() {
                       CONTRATOS
                     </NavDropdown.Item>
                   </NavDropdown>
-                  <Nav.Link>|</Nav.Link>
+                  <Nav.Link className={styles.separador}>|</Nav.Link>
                   <NavDropdown title="MARCAS" id="basic-nav-dropdown">
                     <NavDropdown.Item className={pathname === '/textaf' ? styles.active : ''} href="/textaf">
                       TEXTAF
@@ -48,17 +54,20 @@ export function Header() {
                       TEXTAF HOME
                     </NavDropdown.Item>
                   </NavDropdown>
-                  <Nav.Link>|</Nav.Link>
+                  <Nav.Link className={styles.separador}>|</Nav.Link>
                   <Nav.Link className={pathname === '/noticia' ? styles.active : ''}  href="/noticia">NOTÍCIAS</Nav.Link>
-                  <Nav.Link>|</Nav.Link>
+                  <Nav.Link className={styles.separador}>|</Nav.Link>
                   <Nav.Link className={pathname === '/carreira' ? styles.active : ''}  href="#carreira">CARREIRAS</Nav.Link>
-                  <Nav.Link>|</Nav.Link>
+                  <Nav.Link className={styles.separador}>|</Nav.Link>
                   <Nav.Link className={pathname === '/contacto' ? styles.active : ''}  href="#contacto">CONTACTOS</Nav.Link>
-                  <Nav.Link>|</Nav.Link>            
+                  <Nav.Link className={styles.separador}>|</Nav.Link>            
                   <Nav.Link className={styles.linkContainer} href="#link"><span style={{ marginRight: '-70px' }}>AO:</span> <Image alt=""  src="/images/agola.svg"></Image></Nav.Link>
                 </Nav>
               </Navbar.Collapse>
-            </Container>
+                </Offcanvas.Body>
+             </Navbar.Offcanvas>
+         
+              
           </Navbar>
         </div>
       </header>

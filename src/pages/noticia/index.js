@@ -71,7 +71,6 @@ export default function Noticia({ posts: PostBlog, page, totalPage }) {
         cover: document.data.cover.url,
       };
     });
-
     setCurrentPage(pageNumber)
     setPosts(getPosts);
   }
@@ -85,8 +84,7 @@ export default function Noticia({ posts: PostBlog, page, totalPage }) {
         <h1>Notícias</h1>
         <Row lg={4}>
           {posts.map((post) => (
-            <>
-              <Col className={styles.posts}>
+              <Col key={post.slug} className={styles.posts}>
                 <Image
                   width={300}
                   height={300}
@@ -97,15 +95,13 @@ export default function Noticia({ posts: PostBlog, page, totalPage }) {
                   onClick={() =>
                     handleClick(post.title, post.description, post.cover)
                   }
-                  key={post.slug}
                 >
-                  <h1 key={post.slug}>{post.title}</h1>
+                  <h1>{post.title}</h1>
                   <div
                     dangerouslySetInnerHTML={{ __html: post.description }}
                   ></div>
                 </a>
               </Col>
-            </>
           ))}
         </Row>
         <div className={styles.buttomNavigate}>
@@ -170,7 +166,7 @@ export const getStaticProps = async () => {
   });
 
   const posts = response.results.map((document) => {
-    //console.log(prismic.asHTML(document.data.description))
+    //console.log(document.uid)
     return {
       slug: document.uid,
       title: RichText.asText(document.data.title),
@@ -178,7 +174,6 @@ export const getStaticProps = async () => {
       cover: document.data.cover.url,
     };
   });
-
   return {
     props: {
       posts,

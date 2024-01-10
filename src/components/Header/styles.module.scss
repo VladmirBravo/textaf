@@ -1,5 +1,5 @@
 .headerContainer {
-    height: 5rem;
+    height: 69px;
     //border-bottom: 5px solid var(--gold);
 }
 
@@ -7,22 +7,31 @@
     display: block;
 }
 
+@media screen and (max-width: 990px) {
+    .separador {
+      display: none;
+    }
+
+    .headerContent{
+        justify-content: space-between;
+    }
+  }
+
 .headerContent {
-    max-width: 1120px;
-    height: 6rem;
+    max-width: 900px;
+    height: 80px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 10px;
 
     display: flex;
     align-items: center;
 
     img {
         cursor: pointer;
-        margin-left: 5rem;
     }
 
     nav {
-        margin-left: 4rem;
+        margin-left: 55px;
 
         a {
             position: relative;
@@ -60,4 +69,9 @@
         }
     }
 
+}
+
+.dropdownItem{
+    transition: opacity 6ms;
+    width: 30rem;
 }

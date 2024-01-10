@@ -15,7 +15,7 @@ export function Footer() {
       <footer className={styles.footerContainer}>
         <div className={styles.footerContent}>
           <div className={styles.footercont}>
-            <Image alt="" src="images/TextafLogo.jpg" />
+            <Image className={styles.footerImg} alt="" src="images/TextafLogo.jpg" width='50%'/>
             <h5>
               MORADA BENGUELA: Lorem ipsum dolor sit amet, consectetuer
               adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
