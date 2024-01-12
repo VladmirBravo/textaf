@@ -1,64 +1,101 @@
-.container{
+.container {
     display: block;
-    margin-top: 1.5rem;
+    margin-top: 1.5vw;
 }
 
-.containerHeader{
+.containerHeader {
     margin: 0 auto;
     justify-content: space-between;
-
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 
-.titulo{
+.titulo {
+    margin-left: 4vw;
+    text-align: left;
     font-size: 5.5vw;
-    text-indent: 4rem;
 }
- 
-.ctaText{
-    h1{
-        margin-top: 3.5rem;
-    }
-    p{
-        margin-left: 4rem;
+
+.ctaText {
+    p {
+        margin-left: 4vw;
         text-align: left;
         font-size: 1.7vw;
         word-spacing: 2px;
     }
 }
 
-.ctaTextFinal{
-    h1{
+.ctaTextFinal {
+    h1 {
         font-size: 3vw;
         font-weight: bold;
     }
-    p{
-        margin-left: 4rem;
+
+    p {
+        margin-left: 4vw;
         text-align: justify;
-        //texto responsivo
-        font-size: 1.3vw;
+        font-size: 1.7vw;
         word-spacing: 2px;
     }
 }
 
-.imagem1{
+.imagem1 {
     margin-top: 2rem;
     margin-bottom: 1.5rem;
 }
-.imagem2{
-    margin-left: 2rem; 
+
+.imagem2 {
+    margin-left: 2rem;
     margin-bottom: 2rem;
 }
 
-// @media screen and (max-width: 1538px) {
-//     .ctaTextFinal{
-//         h1{
-//             font-size: 3vw;
-//         }
-//         p{
-            
-//         }
-//     }
-// }
+@media (max-width: 626px) {
+
+    .containerHeader {
+        display: grid;
+        margin-top: 2rem;
+    }
+
+    .imagem {
+        display: none;
+    }
+
+    .ctaText {
+        display: grid;
+
+        p {
+            display: grid;
+            font-size: 3.7vw;
+            word-spacing: 2px;
+            max-width: 90%;
+            text-align: justify;
+        }
+
+        br {
+            display: none;
+        }
+    }
+
+    .ctaTextFinal {
+        display: grid;
+        margin: 0;
+
+        h1 {
+            font-size: 4vw;
+            font-weight: bold;
+        }
+
+        p {
+            margin-left: 4vw;
+            text-align: left;
+            font-size: 3.7vw;
+            word-spacing: 2px;
+        }
+    }
+
+    .imagem2 {
+        width: 95%;
+        margin-left: 1rem;
+        margin-bottom: 2rem;
+    }
+}
