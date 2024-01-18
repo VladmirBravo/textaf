@@ -36,7 +36,7 @@ export default function Marcas({ content }) {
 }
 
 export const getStaticProps = async () => {
-  const client = Prismic.client("https://textaf.cdn.prismic.io/api/v2");
+  const client = Prismic.client("https://textaf.cdn.prismic.io/api/v2"); 
   const response = await client.getByUID("textaf", "pagina-principal");
 
   const { topimage, logoimage, descricaomarca } = response.data;

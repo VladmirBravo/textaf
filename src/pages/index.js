@@ -50,7 +50,7 @@ export default function Home({ content }) {
 }
 
 export const getStaticProps = async () => {
-  const client = Prismic.client("https://textaf.cdn.prismic.io/api/v2");
+  const client = Prismic.client("https://textaf.cdn.prismic.io/api/v2"); 
   const response = await client.getByUID("home", "pagina-home");
 
   const {

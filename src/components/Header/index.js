@@ -61,7 +61,7 @@ export function Header() {
                   <Nav.Link className={styles.separador}>|</Nav.Link>
                   <Nav.Link className={pathname === '/contacto' ? styles.active : ''}  href="#contacto">CONTACTOS</Nav.Link>
                   <Nav.Link className={styles.separador}>|</Nav.Link>            
-                  <Nav.Link className={styles.linkContainer} href="#link"><span style={{ marginRight: '-70px' }}>AO:</span> <Image alt=""  src="/images/agola.svg"></Image></Nav.Link>
+                  <Nav.Link className={styles.linkContainer} href="#link"><span style={{ marginRight: '-70px' }}>AO: <Image alt=""  src="/images/agola.svg"></Image></span></Nav.Link>
                 </Nav>
               </Navbar.Collapse>
                 </Offcanvas.Body>
